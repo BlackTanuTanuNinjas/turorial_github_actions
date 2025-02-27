@@ -40,5 +40,8 @@ jobs:
       - name: Check Code Format
         run: mix format --check-formatted
 
-      - name: Run tests
-        run: mix test
+      - name: Run tests with warnings as errors
+        run: |
+          mix deps.compile
+          mix compile --warnings-as-errors
+          mix test --warnings-as-errors
