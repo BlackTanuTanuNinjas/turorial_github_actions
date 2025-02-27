@@ -40,6 +40,10 @@ jobs:
       - name: Check Code Format
         run: mix format --check-formatted
 
+      - name: Credo Checks
+        run: |
+          mix credo
+
       - name: Run tests with warnings as errors
         run: |
           mix deps.compile
