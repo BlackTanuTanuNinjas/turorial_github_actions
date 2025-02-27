@@ -9,7 +9,8 @@ defmodule TurorialGithubActions.Application do
   def start(_type, _args) do
     children = [
       TurorialGithubActionsWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:turorial_github_actions, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:turorial_github_actions, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: TurorialGithubActions.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: TurorialGithubActions.Finch},
